@@ -1,5 +1,10 @@
 import React from 'react';
 import './App.css';
+import {
+  HashRouter as Router,
+  Route,
+  NavLink
+} from 'react-router-dom';
 
 // Install the socket io client using:
 //    npm install socket.io
@@ -57,23 +62,50 @@ class App extends React.Component {
 
   }
   
-  // Output all the posts into a table
+
+
+
   render() {
     return (
-      <div>      
-        {this.state.posts.map( 
-          ({name,image,content,problem,priority,id}) => 
-            <div key={id}> 
-              <img src={image} alt="{name}" /> <br />
-                {name} <br />
-                {problem} <br />
-                {priority} <br />
-                {content} <br /> <br /> <br /> <br />
-            </div> 
-          )}
+      <div>
+        <Router>
+          <NavLink to="/home">Home</NavLink>
+          <NavLink to="/live-feed">Live Feed</NavLink>
+          <NavLink to="/analytics">Analytics</NavLink>
+
+          <Route path="/home" />
+          <Route path="/live-feed" />
+          <Route path="/analytics" />
+        </Router>
       </div>
-    );
+    )
   }
+
+
+
+
+
+
+
+
+
+  // // Output all the posts into a table
+  // render() {
+  //   return (
+  //     <div>      
+  //       {this.state.posts.map( 
+  //         ({name,image,content,problem,priority,id}) => 
+  //           <div key={id}> 
+  //             <img src={image} alt="{name}" /> <br />
+  //               {name} <br />
+  //               {problem} <br />
+  //               {priority} <br />
+  //               {content} <br /> <br /> <br /> <br />
+  //           </div> 
+  //         )}
+  //     </div>
+  //   );
+  // }
 }
 
 export default App;
