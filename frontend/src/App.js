@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Navbar, Nav } from "react-bootstrap";
 
 // Install the socket io client using:
 //    npm install socket.io
@@ -86,9 +88,20 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <NavLink to="/home">Home</NavLink>
-          <NavLink to="/live-feed">Live Feed</NavLink>
-          <NavLink to="/analytics">Analytics</NavLink>
+          <Navbar bg="light" expand="lg">
+            <Navbar.Brand href="#home">Disaster Feed Dashboard</Navbar.Brand>
+            <Nav className="mr-auto">
+              <Nav.Link as={NavLink} to="/home">
+                Home
+              </Nav.Link>
+              <Nav.Link as={NavLink} to="/live-feed">
+                Live Feed
+              </Nav.Link>
+              <Nav.Link as={NavLink} to="/analytics">
+                Analytics
+              </Nav.Link>
+            </Nav>
+          </Navbar>
 
           <Route path="/home" />
           <Route
