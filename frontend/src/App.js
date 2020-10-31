@@ -110,7 +110,7 @@ class App extends React.Component {
         <Router>
           {/* Navbar */}
           <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#home">Disaster Feed Dashboard</Navbar.Brand>
+            <Navbar.Brand>Disaster Feed Dashboard</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link as={NavLink} to="/home">
                 Home
