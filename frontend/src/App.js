@@ -15,6 +15,16 @@ const socket = io("http://localhost:3001");
 // See: https://socket.io/get-started/chat
 //      https://www.npmjs.com/package/socket.io-client
 
+class Home extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Home Page</h1>
+      </div>
+    );
+  }
+}
+
 class LiveFeed extends React.Component {
   render() {
     return (
@@ -30,6 +40,16 @@ class LiveFeed extends React.Component {
             </div>
           )
         )}
+      </div>
+    );
+  }
+}
+
+class Analytics extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Analytics Page</h1>
       </div>
     );
   }
@@ -88,6 +108,7 @@ class App extends React.Component {
     return (
       <div>
         <Router>
+          {/* Navbar */}
           <Navbar bg="light" expand="lg">
             <Navbar.Brand href="#home">Disaster Feed Dashboard</Navbar.Brand>
             <Nav className="mr-auto">
@@ -103,12 +124,13 @@ class App extends React.Component {
             </Nav>
           </Navbar>
 
-          <Route path="/home" />
+          {/* Render Components */}
+          <Route path="/home" component={Home} />
           <Route
             path="/live-feed"
             render={(props) => <LiveFeed {...props} posts={this.state.posts} />}
           />
-          <Route path="/analytics" />
+          <Route path="/analytics" component={Analytics} />
         </Router>
       </div>
     );
