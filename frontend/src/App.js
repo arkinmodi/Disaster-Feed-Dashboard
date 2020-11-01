@@ -7,7 +7,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Table } from "react-bootstrap";
 
 // Install the socket io client using:
 //    npm install socket.io
@@ -58,6 +58,60 @@ class Analytics extends React.Component {
     return (
       <div>
         <h1>Analytics Page</h1>
+        <Table bordered hover>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Fire</th>
+              <th>Flood</th>
+              <th>Power</th>
+              <th>Medical</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Low</th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>Medium</th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>High</th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>Critical</th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>Total</th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </tbody>
+        </Table>
       </div>
     );
   }
@@ -141,7 +195,12 @@ class App extends React.Component {
             path="/live-feed"
             render={(props) => <LiveFeed {...props} posts={this.state.posts} />}
           />
-          <Route path="/analytics" component={Analytics} />
+          <Route
+            path="/analytics"
+            render={(props) => (
+              <Analytics {...props} posts={this.state.posts} />
+            )}
+          />
         </Router>
       </div>
     );
