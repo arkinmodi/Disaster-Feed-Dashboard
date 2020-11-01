@@ -5,18 +5,6 @@ class Analytics extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // Levels
-      levelLow: true,
-      levelMedium: true,
-      levelHigh: true,
-      levelCritical: true,
-
-      // Danger
-      dangerFire: true,
-      dangerFlood: true,
-      dangerPower: true,
-      dangerMedical: true,
-
       // Array of Totals
       // danger = danger type
       // levelTotals = [Total Low, Total Medium, Total High, Total Critical]
