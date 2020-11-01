@@ -1,6 +1,11 @@
 import React from "react";
 import "./App.css";
-import { HashRouter as Router, Route, NavLink } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Route,
+  NavLink,
+  Redirect,
+} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav } from "react-bootstrap";
 
@@ -15,6 +20,7 @@ const socket = io("http://localhost:3001");
 // See: https://socket.io/get-started/chat
 //      https://www.npmjs.com/package/socket.io-client
 
+// Home Page
 class Home extends React.Component {
   render() {
     return (
@@ -25,6 +31,7 @@ class Home extends React.Component {
   }
 }
 
+// Live Feed Page
 class LiveFeed extends React.Component {
   render() {
     return (
@@ -45,6 +52,7 @@ class LiveFeed extends React.Component {
   }
 }
 
+// Analytics Page
 class Analytics extends React.Component {
   render() {
     return (
@@ -108,6 +116,9 @@ class App extends React.Component {
     return (
       <div>
         <Router>
+          {/* Start App at Home */}
+          <Redirect to="/home" />
+
           {/* Navbar */}
           <Navbar bg="light" expand="lg">
             <Navbar.Brand>Disaster Feed Dashboard</Navbar.Brand>
