@@ -71,17 +71,13 @@ class LiveFeed extends React.Component {
   render() {
     return (
       <div style={{ padding: "1%" }}>
+        <h1>Live Feed</h1>
         {/* Filter Options */}
         <Table borderless>
-          <thead>
-            <tr>
-              <th>Problem</th>
-              <th>Priority</th>
-            </tr>
-          </thead>
           <tbody>
             <tr>
-              <td style={{width: "200px"}}>
+              <th style={{ width: "100px" }}>Problem</th>
+              <td style={{ width: "100px" }}>
                 <Form.Check
                   type="checkbox"
                   label="Fire"
@@ -89,22 +85,39 @@ class LiveFeed extends React.Component {
                   onChange={this.toggleProblem.bind(this, "Fire")}
                 />
               </td>
+              <td style={{ width: "100px" }}>
+                <Form.Check
+                  type="checkbox"
+                  label="Flood"
+                  checked={this.state.problemFlood}
+                  onChange={this.toggleProblem.bind(this, "Flood")}
+                />
+              </td>
+              <td style={{ width: "100px" }}>
+                <Form.Check
+                  type="checkbox"
+                  label="Power"
+                  checked={this.state.problemPower}
+                  onChange={this.toggleProblem.bind(this, "Power")}
+                />
+              </td>
+              <td style={{ width: "100px" }}>
+                <Form.Check
+                  type="checkbox"
+                  label="Medical"
+                  checked={this.state.problemMedical}
+                  onChange={this.toggleProblem.bind(this, "Medical")}
+                />
+              </td>
+            </tr>
+            <tr>
+              <th>Priority</th>
               <td>
                 <Form.Check
                   type="checkbox"
                   label="Low"
                   checked={this.state.priorityLow}
                   onChange={this.togglePriority.bind(this, "Low")}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td style={{width: "200px"}}>
-                <Form.Check
-                  type="checkbox"
-                  label="Flood"
-                  checked={this.state.problemFlood}
-                  onChange={this.toggleProblem.bind(this, "Flood")}
                 />
               </td>
               <td>
@@ -115,32 +128,12 @@ class LiveFeed extends React.Component {
                   onChange={this.togglePriority.bind(this, "Medium")}
                 />
               </td>
-            </tr>
-            <tr>
-              <td style={{width: "200px"}}>
-                <Form.Check
-                  type="checkbox"
-                  label="Power"
-                  checked={this.state.problemPower}
-                  onChange={this.toggleProblem.bind(this, "Power")}
-                />
-              </td>
               <td>
                 <Form.Check
                   type="checkbox"
                   label="High"
                   checked={this.state.priorityHigh}
                   onChange={this.togglePriority.bind(this, "High")}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td style={{width: "200px"}}>
-                <Form.Check
-                  type="checkbox"
-                  label="Medical"
-                  checked={this.state.problemMedical}
-                  onChange={this.toggleProblem.bind(this, "Medical")}
                 />
               </td>
               <td>
@@ -164,13 +157,19 @@ class LiveFeed extends React.Component {
                 <Table>
                   <tbody>
                     <tr>
-                      <td rowSpan="3" style={{width: "200px"}}>
-                        <img src={image} alt="{name}" style={{width: "200px"}}/>
+                      <td rowSpan="3" style={{ width: "200px" }}>
+                        <img
+                          src={image}
+                          alt="{name}"
+                          style={{ width: "200px" }}
+                        />
                       </td>
-                      <td colSpan="2">{name}</td>
+                      <td colSpan="2">
+                        <b>{name}</b>
+                      </td>
                     </tr>
                     <tr>
-                      <td>Problem: {problem}</td>
+                      <td style={{ width: "200px" }}>Problem: {problem}</td>
                       <td>Priority: {priority}</td>
                     </tr>
                     <tr>
