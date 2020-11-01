@@ -84,17 +84,20 @@ class App extends React.Component {
           {/* Navbar */}
           <Navbar bg="light" expand="lg">
             <Navbar.Brand>Disaster Feed Dashboard</Navbar.Brand>
-            <Nav className="mr-auto">
-              <Nav.Link as={NavLink} to="/home">
-                Home
-              </Nav.Link>
-              <Nav.Link as={NavLink} to="/live-feed">
-                Live Feed
-              </Nav.Link>
-              <Nav.Link as={NavLink} to="/analytics">
-                Analytics
-              </Nav.Link>
-            </Nav>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="mr-auto">
+                <Nav.Link as={NavLink} to="/home">
+                  Home
+                </Nav.Link>
+                <Nav.Link as={NavLink} to="/live-feed">
+                  Live Feed
+                </Nav.Link>
+                <Nav.Link as={NavLink} to="/analytics">
+                  Analytics
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
           </Navbar>
 
           {/* Render Components */}
