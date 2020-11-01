@@ -81,7 +81,7 @@ class LiveFeed extends React.Component {
           </thead>
           <tbody>
             <tr>
-              <td>
+              <td style={{width: "200px"}}>
                 <Form.Check
                   type="checkbox"
                   label="Fire"
@@ -99,7 +99,7 @@ class LiveFeed extends React.Component {
               </td>
             </tr>
             <tr>
-              <td>
+              <td style={{width: "200px"}}>
                 <Form.Check
                   type="checkbox"
                   label="Flood"
@@ -117,7 +117,7 @@ class LiveFeed extends React.Component {
               </td>
             </tr>
             <tr>
-              <td>
+              <td style={{width: "200px"}}>
                 <Form.Check
                   type="checkbox"
                   label="Power"
@@ -135,7 +135,7 @@ class LiveFeed extends React.Component {
               </td>
             </tr>
             <tr>
-              <td>
+              <td style={{width: "200px"}}>
                 <Form.Check
                   type="checkbox"
                   label="Medical"
@@ -161,11 +161,23 @@ class LiveFeed extends React.Component {
             this.state.activePriority.includes(priority) &&
             this.state.activeProblem.includes(problem) && (
               <div key={id}>
-                <img src={image} alt="{name}" /> <br />
-                {name} <br />
-                {problem} <br />
-                {priority} <br />
-                {content} <br /> <br /> <br /> <br />
+                <Table>
+                  <tbody>
+                    <tr>
+                      <td rowSpan="3" style={{width: "200px"}}>
+                        <img src={image} alt="{name}" style={{width: "200px"}}/>
+                      </td>
+                      <td colSpan="2">{name}</td>
+                    </tr>
+                    <tr>
+                      <td>Problem: {problem}</td>
+                      <td>Priority: {priority}</td>
+                    </tr>
+                    <tr>
+                      <td colSpan="2">{content}</td>
+                    </tr>
+                  </tbody>
+                </Table>
               </div>
             )
         )}
