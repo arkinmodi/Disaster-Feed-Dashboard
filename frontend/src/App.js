@@ -7,7 +7,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Nav, Table } from "react-bootstrap";
+import { Navbar, Nav, Table, Form } from "react-bootstrap";
 
 // Install the socket io client using:
 //    npm install socket.io
@@ -54,10 +54,129 @@ class LiveFeed extends React.Component {
 
 // Analytics Page
 class Analytics extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // Levels
+      levelLow: true,
+      levelMedium: true,
+      levelHigh: true,
+      levelCritical: true,
+
+      // Danger
+      dangerFire: true,
+      dangerFlood: true,
+      dangerPower: true,
+      dangerMedical: true,
+    };
+  }
+
   render() {
     return (
       <div>
         <h1>Analytics Page</h1>
+
+        {/* Filter Options */}
+        <Table borderless>
+          <thead>
+            <tr>
+              <th>Danger</th>
+              <th>Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <Form.Check
+                  type="checkbox"
+                  label="Fire"
+                  checked={this.state.dangerFire}
+                  onChange={(event) =>
+                    this.setState({ dangerFire: !this.state.dangerFire })
+                  }
+                />
+              </td>
+              <td>
+                <Form.Check
+                  type="checkbox"
+                  label="Low"
+                  checked={this.state.levelLow}
+                  onChange={(event) =>
+                    this.setState({ levelLow: !this.state.levelLow })
+                  }
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Form.Check
+                  type="checkbox"
+                  label="Flood"
+                  checked={this.state.dangerFlood}
+                  onChange={(event) =>
+                    this.setState({ dangerFlood: !this.state.dangerFlood })
+                  }
+                />
+              </td>
+              <td>
+                <Form.Check
+                  type="checkbox"
+                  label="Medium"
+                  checked={this.state.levelMedium}
+                  onChange={(event) =>
+                    this.setState({ levelMedium: !this.state.levelMedium })
+                  }
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Form.Check
+                  type="checkbox"
+                  label="Power"
+                  checked={this.state.dangerPower}
+                  onChange={(event) =>
+                    this.setState({ dangerPower: !this.state.dangerPower })
+                  }
+                />
+              </td>
+              <td>
+                <Form.Check
+                  type="checkbox"
+                  label="High"
+                  checked={this.state.levelHigh}
+                  onChange={(event) =>
+                    this.setState({ levelHigh: !this.state.levelHigh })
+                  }
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Form.Check
+                  type="checkbox"
+                  label="Medical"
+                  checked={this.state.dangerMedical}
+                  onChange={(event) =>
+                    this.setState({ dangerMedical: !this.state.dangerMedical })
+                  }
+                />
+              </td>
+              <td>
+                <Form.Check
+                  type="checkbox"
+                  label="Critical"
+                  checked={this.state.levelCritical}
+                  onChange={(event) =>
+                    this.setState({ levelLow: !this.state.levelCritical })
+                  }
+                />
+              </td>
+            </tr>
+          </tbody>
+        </Table>
+
+        {/* Data Table */}
         <Table bordered hover>
           <thead>
             <tr>
@@ -72,43 +191,43 @@ class Analytics extends React.Component {
           <tbody>
             <tr>
               <th>Low</th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
               <th>Medium</th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
               <th>High</th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
               <th>Critical</th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
               <th>Total</th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           </tbody>
         </Table>
