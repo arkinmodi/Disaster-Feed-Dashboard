@@ -157,15 +157,17 @@ class LiveFeed extends React.Component {
 
         {/* Posts */}
         {this.props.posts.map(
-          ({ name, image, content, problem, priority, id }) => (
-            <div key={id}>
-              <img src={image} alt="{name}" /> <br />
-              {name} <br />
-              {problem} <br />
-              {priority} <br />
-              {content} <br /> <br /> <br /> <br />
-            </div>
-          )
+          ({ name, image, content, problem, priority, id }) =>
+            this.state.activePriority.includes(priority) &&
+            this.state.activeProblem.includes(problem) && (
+              <div key={id}>
+                <img src={image} alt="{name}" /> <br />
+                {name} <br />
+                {problem} <br />
+                {priority} <br />
+                {content} <br /> <br /> <br /> <br />
+              </div>
+            )
         )}
       </div>
     );
