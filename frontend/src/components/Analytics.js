@@ -45,7 +45,28 @@ class Analytics extends React.Component {
     return total;
   }
 
+  updateData() {
+    let data = this.state.data;
+    let posts = this.props.posts;
+    let levels = ["Low", "Medium", "High", "Critical"];
+
+    // Loop through all danger types
+    for (let danger = 0; danger < data.length; danger++) {
+      // Loop through all levels
+      for (let level = 0; level < data[danger].levelTotals.length; level++) {
+        // Count number posts with each combination of danger type and level
+        data[danger].levelTotals[level] = posts.filter(
+          (post) =>
+            post.problem === data[danger].danger &&
+            post.priority === levels[level]
+        ).length;
+      }
+    }
+  }
+
   render() {
+    this.updateData();
+
     // Levels Total Column Values
     let lowRowTotal = this.getLevelTotal(0);
     let mediumRowTotal = this.getLevelTotal(1);
@@ -185,26 +206,26 @@ class Analytics extends React.Component {
             </tr>
             <tr>
               <th>Medium</th>
-              <td>{this.state.data[0].levelTotals[0]}</td>
-              <td>{this.state.data[1].levelTotals[0]}</td>
-              <td>{this.state.data[2].levelTotals[0]}</td>
-              <td>{this.state.data[3].levelTotals[0]}</td>
+              <td>{this.state.data[0].levelTotals[1]}</td>
+              <td>{this.state.data[1].levelTotals[1]}</td>
+              <td>{this.state.data[2].levelTotals[1]}</td>
+              <td>{this.state.data[3].levelTotals[1]}</td>
               <td>{mediumRowTotal}</td>
             </tr>
             <tr>
               <th>High</th>
-              <td>{this.state.data[0].levelTotals[0]}</td>
-              <td>{this.state.data[1].levelTotals[0]}</td>
-              <td>{this.state.data[2].levelTotals[0]}</td>
-              <td>{this.state.data[3].levelTotals[0]}</td>
+              <td>{this.state.data[0].levelTotals[2]}</td>
+              <td>{this.state.data[1].levelTotals[2]}</td>
+              <td>{this.state.data[2].levelTotals[2]}</td>
+              <td>{this.state.data[3].levelTotals[2]}</td>
               <td>{highRowTotal}</td>
             </tr>
             <tr>
               <th>Critical</th>
-              <td>{this.state.data[0].levelTotals[0]}</td>
-              <td>{this.state.data[1].levelTotals[0]}</td>
-              <td>{this.state.data[2].levelTotals[0]}</td>
-              <td>{this.state.data[3].levelTotals[0]}</td>
+              <td>{this.state.data[0].levelTotals[3]}</td>
+              <td>{this.state.data[1].levelTotals[3]}</td>
+              <td>{this.state.data[2].levelTotals[3]}</td>
+              <td>{this.state.data[3].levelTotals[3]}</td>
               <td>{criticalRowTotal}</td>
             </tr>
             <tr>
