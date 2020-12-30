@@ -12,7 +12,7 @@ The Live Feed page takes the incoming posts, formats them into a "card" and push
     <img src="images/live_feed_page.png" height="auto" width="700px"/>
 </div>
 
-The Analytics page contains a table displaying the number of posts under a give problem/priority. Columns contain the problem types, and the rows contain the priority levels. This table also includes totals for each row or column.
+The Analytics page contains a table displaying the number of posts under a given problem/priority. Columns contain the problem types, and the rows contain the priority levels. This table also includes totals for each row or column.
 
 <div style="text-align:center">
     <img src="images/analytics_page.png" height="auto" width="700px"/>
